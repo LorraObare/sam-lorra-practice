@@ -1,12 +1,54 @@
-# React + Vite
+# SAM-LORRA-PRACTICE Login Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React-based login page with image integration and adaptive design for mobile and desktop devices.
 
-Currently, two official plugins are available:
+## 📦 Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SAM-LORRA-PRACTICE/
+├── public/
+│ └── login-illustration.JPG // Optional static image
+├── src/
+│ ├── assets/
+│ │ └── login-illustration.JPG // Responsive image (preferred location)
+│ ├── components/
+│ │ └── LoginForm.jsx // Login form component
+│ ├── pages/
+│ │ └── Dashboard.jsx // Post-login dashboard placeholder
+│ ├── App.jsx // Routes and app entry
+│ ├── index.jsx // React root renderer
+│ └── LoginForm.css // Component styling
+├── package.json
+└── README.md
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ **Login form** with email and password fields
+- ✅ **Form validation** with error message on incorrect credentials
+- ✅ **Responsive design** (desktop & mobile support)
+- ✅ **Image section** alongside the form on large screens
+- ✅ **Basic routing** using `react-router-dom`
+- ✅ **Navigation** to `/dashboard` on successful login
+- ✅ **JWT simulation** using `localStorage`
+
+## 🖼️ UI Overview
+
+The page is split into two parts on desktop:
+- **Left side**: An image (stored in `/assets` or `/public`)
+- **Right side**: A form with email/password fields and login button
+
+On **mobile**, the layout stacks vertically with the form first, then the image.
+
+## 🛠️ Technologies Used
+
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/) (development server & bundler)
+- [Axios](https://axios-http.com/) (for future real API calls)
+- CSS (custom responsive styles)
+
+## 🚀 Setup Instructions
+
+1. **Clone the project**  
+   ```bash
+   git clone https://github.com/your-username/sam-lorra-practice.git
+   cd sam-lorra-practice
