@@ -1,0 +1,115 @@
+.register-wrapper {
+    display: flex;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    flex-wrap: wrap;
+  }
+  
+  .register-image-section {
+    flex: 1;
+    background-color: #1e1e2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .register-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .register-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .register-form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #1e1e2f;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  .register-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .register-form button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #1e1e2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-form button:hover {
+    background-color: #33334d;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .login-link {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .login-link a {
+    color: #1e1e2f;
+    text-decoration: none;
+    font-weight: bold;
+  }
+    /* Responsive for small/mobile screens */
+    @media (max-width: 768px) {
+        .register-wrapper {
+          flex-direction: column;
+        }
+      
+        .register-image-section,
+        .register-container {
+          flex: none;
+          width: 100%;
+          padding: 1rem;
+        }
+      
+        .register-image-section {
+          order: 2; /* show image below form */
+        }
+      
+        .register-container {
+          order: 1; /* show form first */
+        }
+      
+        .register-form {
+          max-width: 100%;
+        }
+      }
+      
+  
