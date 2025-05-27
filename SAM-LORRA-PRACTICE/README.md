@@ -3,6 +3,7 @@
 A responsive React-based login page with image integration and adaptive design for mobile and desktop devices.
 
 ## 📦 Project Structure
+
 SAM-LORRA-PRACTICE/
 ├── public/
 │ └── login-illustration.JPG // Optional static image
