@@ -13,15 +13,36 @@ export default function RegisterForm() {
   };
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      // Simulated registration
-      localStorage.setItem('token', 'demo-token');
+  e.preventDefault();
+  setError(''); // Reset error
+
+  try {
+    const response = await fetch('http://localhost/auth-backend/register.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: form.name,
+        email: form.email,
+        password: form.password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.status === 'success') {
+      // Optionally set token or redirect to login
       navigate('/dashboard');
-    } catch (err) {
-      setError('Registration failed. Try again.');
+    } else {
+      setError(data.message || 'Registration failed. Try again.');
     }
-  };
+  } catch (err) {
+    console.error('Error:', err);
+    setError('Server error. Please try again later.');
+  }
+};
+
 
   return (
     <div className="register-wrapper">
