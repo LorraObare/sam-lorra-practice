@@ -4,7 +4,7 @@ import one from '../assets/one.jpg'; // Make sure this is the correct path
 import './RegisterForm.css';
 
 export default function RegisterForm() {
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -12,11 +12,13 @@ export default function RegisterForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = async (e) => {
+ const handleRegister = async (e) => {
   e.preventDefault();
-  setError(''); // Reset error
+  setError(''); // Reset error message
 
   try {
+    console.log("Sending registration to backend...");
+
     const response = await fetch('http://localhost/auth-backend/register.php', {
       method: 'POST',
       headers: {
@@ -29,11 +31,12 @@ export default function RegisterForm() {
       }),
     });
 
+    console.log("Response received", response);
+
     const data = await response.json();
 
     if (data.status === 'success') {
-      // Optionally set token or redirect to login
-      navigate('/dashboard');
+      navigate('/dashboard'); // Redirect user to dashboard
     } else {
       setError(data.message || 'Registration failed. Try again.');
     }
