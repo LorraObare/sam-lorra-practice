@@ -17,9 +17,9 @@ export default function RegisterForm() {
   setError(''); // Reset error message
 
   try {
-    console.log("Sending registration to backend...");
+  console.log("Sending registration to backend...");
 
-    const response = await fetch('http://localhost/auth-backend/register.php', {
+  const response = await fetch('http://localhost/auth-backend/register.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,16 +28,16 @@ export default function RegisterForm() {
         username: form.name,
         email: form.email,
         password: form.password,
-      }),
-    });
+  }),
+});
 
-    console.log("Response received", response);
+  console.log("Response received", response);
 
-    const data = await response.json();
+  const data = await response.json();
 
-    if (data.status === 'success') {
-      navigate('/dashboard'); // Redirect user to dashboard
-    } else {
+  if (data.status === 'success') {
+  navigate('/dashboard'); // Redirect user directly to dashboard
+  } else {
       setError(data.message || 'Registration failed. Try again.');
     }
   } catch (err) {
@@ -70,20 +70,20 @@ export default function RegisterForm() {
             onChange={handleChange}
             required
           />
-          <input
+    <input
             type="password"
             name="password"
             placeholder="Password"
             onChange={handleChange}
             required
-          />
+    />
           <button type="submit">Register</button>
           {error && <p className="error">{error}</p>}
           <p className="login-link">
             Already have an account? <Link to="/login">Login</Link>
           </p>
-        </form>
-      </div>
-    </div>
+      </form>
+  </div>
+  </div>
   );
 }
