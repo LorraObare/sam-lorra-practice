@@ -34,6 +34,10 @@ export default function RegisterForm() {
   console.log("Response received", response);
 
   const data = await response.json();
+  if (data.status === 'error') {
+  setError(data.message); // "Email already registered."
+  return;
+}
 
   if (data.status === 'success') {
   navigate('/dashboard'); // Redirect user directly to dashboard
