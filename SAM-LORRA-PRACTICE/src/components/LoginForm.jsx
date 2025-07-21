@@ -13,15 +13,39 @@ export default function LoginForm() {
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      // Simulated login
-      localStorage.setItem('token', 'demo-token');
-      navigate('/dashboard');
-    } catch (err) {
-      setError('Invalid login credentials');
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost/auth-backend/login.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.status === 'success') {
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('role', data.role); // save role for redirect
+
+      // redirect based on role
+      if (data.role === 'admin') {
+        navigate('/admin/dashboard');
+      } else {
+        navigate('/user/home');
+      }
+    } else {
+      setError(data.message || 'Invalid login credentials');
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setError('Server error. Try again later.');
+  }
+};
+;
 
   return (
     <div className="login-wrapper">

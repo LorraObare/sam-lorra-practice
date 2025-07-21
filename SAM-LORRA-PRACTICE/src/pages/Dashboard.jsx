@@ -12,5 +12,5 @@ export default function Dashboard() {
     }
   }, []);
 
-  return <h2>Welcome to your dashboard!</h2>;
+  return <h2>Welcome to your page</h2>;
 }
